@@ -1,8 +1,11 @@
 'use strict'
 
 const TelegramBot = require('node-telegram-bot-api');
-const token = '496687864:AAEOjMXjWjqBlMMU2fXwBSdMTITjolzQv_8';
-const bot = new TelegramBot(token, {polling: true});
+const TOKEN = '496687864:AAEOjMXjWjqBlMMU2fXwBSdMTITjolzQv_8';
+const bot = new TelegramBot(TOKEN);
+const url = 'https://satana-bot.herokuapp.com/' + TOKEN;
+
+bot.setWebHook(url);
 
 bot.on('message', (msg) => {
     var hi = 'hi';
@@ -12,7 +15,7 @@ bot.on('message', (msg) => {
     
     var bye = "bye";
     if (msg.text.toString().toLowerCase().includes(bye)) {
-        bot.sendMessage(msg.chat.id, "До скорой встречи");
+        bot.sendMessage(msg.chat.id, "Пока");
     } 
 
     var robot = "I'm robot";
